@@ -10,6 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
     "expo": "~44.0.0",
@@ -21,7 +22,9 @@
     "react-native-paper": "^4.11.2",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
-    "react-native-web": "0.17.1"
+    "react-native-vector-icons": "^9.0.0",
+    "react-native-web": "0.17.1",
+    "undefined": "react-navigation/bottom/tabs"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

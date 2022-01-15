@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, Image, View, StyleSheet, Dimensions, TouchableWithoutFeedback } from 'react-native';
+import Colors from '../../../Constants/Color';
 
 export default function Logo(props) {
   return (
@@ -10,7 +11,7 @@ export default function Logo(props) {
         }}
         style={styles.logo}
       />
-      <TouchableWithoutFeedback onPress={() => props.navigation.navigate('Places', {secretPath: true})} >
+      <TouchableWithoutFeedback onPress={() => props.navigation.navigate('Places')} >
         <Text style={styles.title}>Starbucks</Text>
       </TouchableWithoutFeedback>
     </View>
@@ -20,7 +21,7 @@ export default function Logo(props) {
 const styles = StyleSheet.create({
   title: {
     fontSize: 32,
-    color: '#006341',
+    color: Colors.primary,
     textTransform: 'uppercase',
     fontFamily: 'Montserrat-Black',
   },

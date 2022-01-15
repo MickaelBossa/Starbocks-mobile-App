@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
   Dimensions,
 } from 'react-native';
+import Colors from '../../Constants/Color';
 
 export default function Product(props) {
 
@@ -15,7 +16,7 @@ export default function Product(props) {
     <TouchableHighlight
       onPress={props.toggleModal}
       activeOpacity={1}
-      underlayColor='rgba(0, 105, 60, .7)'
+      underlayColor={Colors.primaryFaded}
     >
       <View style={styles.card}>
         <Text style={styles.cardTitle}>{props.item.item.name}</Text>

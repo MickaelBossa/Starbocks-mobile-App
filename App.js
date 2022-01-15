@@ -3,6 +3,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import Colors from './Constants/Color';
 
 // Composants
 import AppNavigator from './Navigation/AppNavigator';
@@ -16,7 +17,7 @@ export default function App() {
 
   if (!fontsLoaded) {
     return (
-      <ActivityIndicator size='large' color='#006341' style={{ flex: 1 }} />
+      <ActivityIndicator size='large' color={Colors.primary} style={{ flex: 1 }} />
     );
   }
 
