@@ -3,10 +3,10 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
-import Colors from './Constants/Color';
+import Colors from './constants/Color';
 
 // Composants
-import AppNavigator from './Navigation/AppNavigator';
+import AppNavigator from './navigation/AppNavigator';
 
 export default function App() {
   // Police personnalisée

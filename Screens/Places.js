@@ -12,7 +12,6 @@ import {
 import Header from '../Components/UI/Header/Header';
 
 export default function Places(props) {
-  console.log(props);
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Header navigation={props.navigation} screen='Places' />

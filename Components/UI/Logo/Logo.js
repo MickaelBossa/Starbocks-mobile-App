@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, Image, View, StyleSheet, Dimensions, TouchableWithoutFeedback } from 'react-native';
-import Colors from '../../../Constants/Color';
+import Colors from '../../../constants/Color';
 
 export default function Logo(props) {
   return (

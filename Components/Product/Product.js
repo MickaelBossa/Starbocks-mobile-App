@@ -7,7 +7,7 @@ import {
   TouchableHighlight,
   Dimensions,
 } from 'react-native';
-import Colors from '../../Constants/Color';
+import Colors from '../../constants/Color';
 
 export default function Product(props) {
 

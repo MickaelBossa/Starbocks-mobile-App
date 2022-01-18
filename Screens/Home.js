@@ -1,5 +1,6 @@
 // Librairies
 import React, { useState } from 'react';
+import Colors from '../constants/Color';
 import {
   StyleSheet,
   Text,
@@ -14,7 +15,6 @@ import {
   SafeAreaView,
   Platform,
 } from 'react-native';
-import Colors from '../Constants/Color';
 
 // Composants
 import Logo from '../Components/UI/Logo/Logo';
@@ -88,9 +88,9 @@ export default function Home(props) {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: Colors.secondary}}>
+    <View style={{ flex: 1, backgroundColor: Colors.secondary }}>
       <SafeAreaView style={{ flex: 1 }}>
-        <Header navigation={props.navigation} screen="Home" />
+        <Header navigation={props.navigation} screen='Home' />
         <View style={styles.container}>
           <Modal visible={modal} transparent={true}>
             <View style={styles.modalContainer}>

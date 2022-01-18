@@ -1,13 +1,20 @@
 // Librairies
 import React from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Colors from '../constants/Color';
+
+// Navigateurs
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Colors from '../Constants/Color';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 // Ecrans
-import HomeScreen from '../Screens/Home';
-import PlacesScreen from '../Screens/Places';
+import HomeScreen from '../screens/Home';
+import PlacesScreen from '../screens/Places';
+import InformationsScreen from '../screens/Informations';
+
+// Composants
+import DrawerContentScreen from '../screens/drawer/DrawerContentScreen';
 
 // // MainStackNavigator
 // const MainStackNavigatorComponent = createStackNavigator();
@@ -56,7 +63,7 @@ export const AppTabNavigator = () => {
     >
       <TabNavigator.Screen
         name='Home'
-        component={HomeScreen}
+        component={ModalStackNavigator}
         options={{ title: 'Accueil' }}
       />
       <TabNavigator.Screen
@@ -65,5 +72,62 @@ export const AppTabNavigator = () => {
         options={{ title: 'Salons' }}
       />
     </TabNavigator.Navigator>
+  );
+};
+
+// DrawerNavigator
+const DrawerNavigator = createDrawerNavigator();
+
+export const AppDrawerNavigator = () => {
+  return (
+    <DrawerNavigator.Navigator
+      screenOptions={{
+        headerShown: false,
+        drawerActiveTintColor: Colors.primary,
+        swipeEnabled: false,
+      }}
+      drawerContent={(props) => <DrawerContentScreen {...props} />}
+      drawerType='slide'
+    >
+      <DrawerNavigator.Screen
+        name='DrawerHome'
+        component={AppTabNavigator}
+        options={{
+          title: 'Accueil',
+          drawerIcon: ({ focused, color, size }) => (
+            <Ionicons
+              name={focused ? 'home' : 'home-outline'}
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+      />
+    </DrawerNavigator.Navigator>
+  );
+};
+
+// ModalNavigator
+
+const ModalNavigator = createStackNavigator();
+
+const ModalStackNavigator = () => {
+  return (
+    <ModalNavigator.Navigator 
+    screenOptions={{
+      presentation: "modal",
+    }}
+    >
+      <ModalNavigator.Screen
+        name='Main'
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <ModalNavigator.Screen
+        name='Informations'
+        component={InformationsScreen}
+        options={{ headerShown: false }}
+      />
+    </ModalNavigator.Navigator>
   );
 };

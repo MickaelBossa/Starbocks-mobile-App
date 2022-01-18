@@ -1,8 +1,9 @@
 // Librairies
-import * as React from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { Appbar } from 'react-native-paper';
-import Colors from '../../../Constants/Color';
+import Colors from '../../../constants/Color';
+import { DrawerActions} from '@react-navigation/native';
 
 export default function Header(props) {
   const manageScreens = () => {
@@ -18,8 +19,10 @@ export default function Header(props) {
       <Appbar.Header style={{ backgroundColor: Colors.primary }}>
         {props.screen !== 'Home' ? (
           <>
-            <Appbar.BackAction
-              onPress={() => props.navigation.navigate('Home')}
+            <Appbar.Action
+              icon= 'menu'
+              onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer)}
+              color= '#fff'
             />
             <Appbar.Content
               title={manageScreens()}
@@ -30,12 +33,14 @@ export default function Header(props) {
           <Appbar.Content title={manageScreens()} />
         )}
         <Appbar.Action
-          icon='map-marker'
+          icon='information-outline'
           onPress={() =>
-            props.navigation.navigate('Places')
+            props.navigation.navigate('Informations')
           }
         />
       </Appbar.Header>
     </View>
   );
 }
+
+
