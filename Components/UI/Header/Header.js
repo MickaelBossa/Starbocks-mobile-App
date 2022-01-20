@@ -11,6 +11,8 @@ export default function Header(props) {
       return 'Accueil';
     } else if (props.screen && props.screen === 'Places') {
       return 'Salons';
+    } else if (props.screen && props.screen == 'AddProducts') {
+      return 'Proposer un produit'
     }
   };
 

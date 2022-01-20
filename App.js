@@ -2,11 +2,25 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import Colors from './constants/Color';
+
+// Redux
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import placesReducer from './store/reducers/places';
+import productsReducer from './store/reducers/products';
 
 // Composants
 import AppNavigator from './navigation/AppNavigator';
+
+
+const rootReducer = combineReducers({
+  places: placesReducer,
+  products: productsReducer,
+});
+
+const store = createStore(rootReducer);
 
 export default function App() {
   // Police personnalisée
@@ -23,9 +37,11 @@ export default function App() {
 
   return (
     <>
-      <AppNavigator />
+      <Provider store={store}>
+        <AppNavigator />
 
-      <StatusBar style='auto' />
+        <StatusBar style='auto' />
+      </Provider>
     </>
   );
 }

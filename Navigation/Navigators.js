@@ -12,6 +12,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from '../screens/Home';
 import PlacesScreen from '../screens/Places';
 import InformationsScreen from '../screens/Informations';
+import AddProductsScreen from '../screens/AddProducts';
 
 // Composants
 import DrawerContentScreen from '../screens/drawer/DrawerContentScreen';
@@ -54,6 +55,8 @@ export const AppTabNavigator = () => {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Places') {
             iconName = focused ? 'location' : 'location-outline';
+          } else if (route.name === 'AddProducts') {
+            iconName = focused ? 'add-circle' : 'add-circle-outline';
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -70,6 +73,11 @@ export const AppTabNavigator = () => {
         name='Places'
         component={PlacesScreen}
         options={{ title: 'Salons' }}
+      />
+      <TabNavigator.Screen 
+      name='AddProducts'
+      component={AddProductsScreen}
+      options={{ title: 'Ajouter un produit' }}
       />
     </TabNavigator.Navigator>
   );

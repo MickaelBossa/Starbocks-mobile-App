@@ -1,24 +1,27 @@
 // Librairies
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  SafeAreaView,
-} from 'react-native';
+import { View, Text, StyleSheet, FlatList, SafeAreaView } from 'react-native';
+import { useSelector } from 'react-redux';
 
 // Composants
 import Header from '../Components/UI/Header/Header';
+import Place from '../Components/Place/Place';
 
 export default function Places(props) {
+  // Variables
+  const places = useSelector((state) => state.places.places);
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Header navigation={props.navigation} screen='Places' />
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
-          <Text>Test</Text>
-        </TouchableOpacity>
+        <FlatList
+          data={places}
+          renderItem={(item) => (
+            <Place item={item.item} />
+          )}
+          keyExtractor={item => item.id}
+        />
       </View>
     </SafeAreaView>
   );

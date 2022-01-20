@@ -9,12 +9,12 @@ import {
   Image,
   FlatList,
   Modal,
-  ActivityIndicator,
   Linking,
   Dimensions,
   SafeAreaView,
   Platform,
 } from 'react-native';
+import { useSelector } from 'react-redux';
 
 // Composants
 import Logo from '../Components/UI/Logo/Logo';
@@ -25,58 +25,10 @@ export default function Home(props) {
   // State
   const [isDisplayed, setIsDisplayed] = useState(false);
 
-  const [products, setProducts] = useState([
-    {
-      name: 'Iced Latte',
-    },
-    {
-      name: 'Doubleshot Iced Coffee',
-    },
-    {
-      name: 'Doubleshot Vanilla Iced Coffee',
-    },
-    {
-      name: 'Caramel Macchiato',
-    },
-    {
-      name: 'Iced Caramel Macchiato',
-    },
-    {
-      name: 'Iced Cappuccino',
-    },
-    {
-      name: 'Ristretto Bianco',
-    },
-    {
-      name: 'Cold Brew Latte',
-    },
-    {
-      name: 'Mocha',
-    },
-    {
-      name: 'Iced Mocha',
-    },
-    {
-      name: 'Americano',
-    },
-    {
-      name: 'Iced Americano',
-    },
-    {
-      name: 'Café Filtre',
-    },
-    {
-      name: 'Café Filtre Glacé',
-    },
-    {
-      name: 'Chocolat Viennois Signature',
-    },
-    {
-      name: 'Chocolat Viennois Signature Glacé',
-    },
-  ]);
-
   const [modal, setModal] = useState(false);
+
+  // Variables
+  const products = useSelector(state => state.products.products);
 
   // Fonctions
   const toggleState = () => {

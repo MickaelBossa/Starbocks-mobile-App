@@ -1,5 +1,5 @@
 export default {
     primary: '#006341',
-    primaryFaded: 'rgba(0, 105, 60, .7)',
+    primaryFaded: 'rgba(0, 105, 60, .2)',
     secondary: '#fff',
 }
